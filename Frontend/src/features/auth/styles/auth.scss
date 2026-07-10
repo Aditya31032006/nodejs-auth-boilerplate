@@ -1,28 +1,27 @@
-@use 'sass:color';
+@use "sass:color";
 // ========================================================
-// NEUMORPHIC AUTH THEME
-// Soft UI / Neumorphism — Light white/grey palette
+// DARK AUTH THEME
 // ========================================================
 
 // ── Variables ──────────────────────────────────────────
-$nm-bg:            #e8eaf0;
-$nm-bg-card:       #eef0f5;
-$nm-shadow-light:  #ffffff;
-$nm-shadow-dark:   #c8cad4;
+$nm-bg: #060816;
+$nm-bg-card: rgba(15, 23, 42, 0.95);
+$nm-shadow-light: rgba(255, 255, 255, 0.06);
+$nm-shadow-dark: rgba(2, 6, 23, 0.8);
 
-$nm-text-primary:  #3a3d52;
-$nm-text-secondary:#7a7f9a;
-$nm-text-muted:    #a8adc4;
-$nm-accent:        #5b6af0;
-$nm-accent-hover:  #4a58e0;
+$nm-text-primary: #f8fafc;
+$nm-text-secondary: #cbd5e1;
+$nm-text-muted: #94a3b8;
+$nm-accent: #60a5fa;
+$nm-accent-hover: #3b82f6;
 
-$nm-radius-sm:     10px;
-$nm-radius-md:     16px;
-$nm-radius-lg:     24px;
-$nm-radius-xl:     32px;
-$nm-radius-pill:   999px;
+$nm-radius-sm: 10px;
+$nm-radius-md: 16px;
+$nm-radius-lg: 24px;
+$nm-radius-xl: 32px;
+$nm-radius-pill: 999px;
 
-$nm-font:          'Inter', 'Segoe UI', system-ui, sans-serif;
+$nm-font: "Inter", "Segoe UI", system-ui, sans-serif;
 
 // ── Mixins ─────────────────────────────────────────────
 
@@ -30,7 +29,7 @@ $nm-font:          'Inter', 'Segoe UI', system-ui, sans-serif;
   background: $nm-bg-card;
   border-radius: $radius;
   box-shadow:
-    8px  8px  18px $nm-shadow-dark,
+    8px 8px 18px $nm-shadow-dark,
     -8px -8px 18px $nm-shadow-light;
 }
 
@@ -38,7 +37,7 @@ $nm-font:          'Inter', 'Segoe UI', system-ui, sans-serif;
   background: $nm-bg;
   border-radius: $radius;
   box-shadow:
-    inset 5px  5px 12px $nm-shadow-dark,
+    inset 5px 5px 12px $nm-shadow-dark,
     inset -5px -5px 12px $nm-shadow-light;
 }
 
@@ -46,7 +45,7 @@ $nm-font:          'Inter', 'Segoe UI', system-ui, sans-serif;
   background: $nm-bg-card;
   border-radius: $radius;
   box-shadow:
-    inset 3px  3px 8px rgba($nm-shadow-dark, 0.65),
+    inset 3px 3px 8px rgba($nm-shadow-dark, 0.65),
     inset -3px -3px 8px $nm-shadow-light;
 }
 
@@ -62,10 +61,12 @@ $nm-font:          'Inter', 'Segoe UI', system-ui, sans-serif;
 }
 
 // ── Google Font Import ──────────────────────────────────
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 // ── Reset / Base ─────────────────────────────────────────
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -84,11 +85,11 @@ $nm-font:          'Inter', 'Segoe UI', system-ui, sans-serif;
   // subtle decorative blobs
   &::before,
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     border-radius: 50%;
     pointer-events: none;
-    opacity: 0.18;
+    opacity: 0.2;
     filter: blur(60px);
   }
   &::before {
@@ -96,14 +97,22 @@ $nm-font:          'Inter', 'Segoe UI', system-ui, sans-serif;
     height: 520px;
     top: -120px;
     left: -140px;
-    background: radial-gradient(circle, #b0b8ff 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(96, 165, 250, 0.22) 0%,
+      transparent 70%
+    );
   }
   &::after {
     width: 400px;
     height: 400px;
     bottom: -80px;
     right: -100px;
-    background: radial-gradient(circle, #c3c8ff 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(129, 140, 248, 0.22) 0%,
+      transparent 70%
+    );
   }
 }
 
@@ -120,6 +129,8 @@ $nm-font:          'Inter', 'Segoe UI', system-ui, sans-serif;
   gap: 0;
   position: relative;
   z-index: 1;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  backdrop-filter: blur(18px);
 
   // ── Avatar ──
   .auth-avatar {
@@ -211,7 +222,7 @@ $nm-font:          'Inter', 'Segoe UI', system-ui, sans-serif;
 
         &:focus {
           box-shadow:
-            inset 5px  5px 12px rgba($nm-shadow-dark, 0.8),
+            inset 5px 5px 12px rgba($nm-shadow-dark, 0.8),
             inset -5px -5px 12px $nm-shadow-light,
             0 0 0 2.5px rgba($nm-accent, 0.22);
         }
@@ -278,8 +289,10 @@ $nm-font:          'Inter', 'Segoe UI', system-ui, sans-serif;
         &.checked {
           background: $nm-accent;
           box-shadow:
-            inset 2px 2px 6px rgba(color.adjust($nm-accent, $lightness: -20%), 0.5),
-            inset -2px -2px 6px rgba(color.adjust($nm-accent, $lightness: 30%), 0.3);
+            inset 2px 2px 6px
+              rgba(color.adjust($nm-accent, $lightness: -20%), 0.5),
+            inset -2px -2px 6px
+              rgba(color.adjust($nm-accent, $lightness: 30%), 0.3);
 
           svg {
             opacity: 1;
@@ -314,7 +327,11 @@ $nm-font:          'Inter', 'Segoe UI', system-ui, sans-serif;
     @include nm-raised($nm-radius-md);
     width: 100%;
     padding: 14px;
-    background: linear-gradient(145deg, color.adjust($nm-accent, $lightness: 5%), $nm-accent);
+    background: linear-gradient(
+      145deg,
+      color.adjust($nm-accent, $lightness: 5%),
+      $nm-accent
+    );
     border: none;
     border-radius: $nm-radius-md;
     cursor: pointer;
@@ -327,7 +344,10 @@ $nm-font:          'Inter', 'Segoe UI', system-ui, sans-serif;
     box-shadow:
       5px 5px 14px rgba($nm-accent, 0.35),
       -3px -3px 10px $nm-shadow-light;
-    transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.2s ease,
+      filter 0.2s ease;
 
     &:hover {
       filter: brightness(1.06);
@@ -350,7 +370,7 @@ $nm-font:          'Inter', 'Segoe UI', system-ui, sans-serif;
 
     &::before,
     &::after {
-      content: '';
+      content: "";
       flex: 1;
       height: 1px;
       background: rgba($nm-shadow-dark, 0.6);
@@ -393,16 +413,16 @@ $nm-font:          'Inter', 'Segoe UI', system-ui, sans-serif;
   width: 96vw;
   padding: 36px 40px 30px;
   flex-direction: row;
-  align-items: stretch;      // ← stretch so right column fills card height
+  align-items: stretch; // ← stretch so right column fills card height
   gap: 36px;
-  height: 88vh;              // ← fixed height so flex children are bounded
+  height: 88vh; // ← fixed height so flex children are bounded
   max-height: 92vh;
 
   // Left branding column
   .register-left {
     @include flex-col;
     align-items: center;
-    justify-content: flex-start;   // top-aligned within stretched height
+    justify-content: flex-start; // top-aligned within stretched height
     flex-shrink: 0;
     width: 170px;
     gap: 14px;
@@ -446,7 +466,7 @@ $nm-font:          'Inter', 'Segoe UI', system-ui, sans-serif;
     @include flex-col;
     flex: 1;
     min-width: 0;
-    height: 100%;              // fill the full card height
+    height: 100%; // fill the full card height
     overflow: hidden;
 
     .auth-form {
