@@ -1,12 +1,10 @@
-import { Navigate, Outlet } from "react-router";
+import { Navigate, Outlet, useLocation } from "react-router";
 import { useContext } from "react";
 import { AuthContext } from "../auth.context";
 
-
-
-
 export function PublicOnlyRoute() {
   const { user, checkingAuth } = useContext(AuthContext);
+  const location = useLocation();
 
   if (checkingAuth) {
     return (
@@ -45,8 +43,8 @@ export function PublicOnlyRoute() {
     );
   }
 
-  if (user) {
-    return <Navigate to="/" replace />;
+  if (user && location.pathname !== "/success") {
+    return <Navigate to="/success" replace />;
   }
 
   return <Outlet />;

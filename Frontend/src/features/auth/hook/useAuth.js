@@ -41,7 +41,7 @@ function useAuth() {
         console.log("✅ Registered token decoded:", decoded);
       }
 
-      navigate("/");
+      navigate("/success");
       toast.success("Account created successfully!");
     } catch (error) {
       if (Array.isArray(error?.errors)) {
@@ -77,7 +77,7 @@ function useAuth() {
         }
       }
 
-      navigate("/");
+      navigate("/success");
       toast.success("Welcome back!");
     } catch (error) {
       if (Array.isArray(error?.errors)) {

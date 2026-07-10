@@ -42,3 +42,4 @@ CREATE TABLE users (
 
 - The local database file is created automatically on first run.
 - The UI has been refreshed with a dark theme for a modern look.
+- When a user is already authenticated, the app keeps them on the success screen instead of allowing them to return to login until they log out.
